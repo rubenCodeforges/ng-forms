@@ -3,10 +3,10 @@ import * as _ from "lodash";
 import {TextInput} from "../inputs/TextInput";
 
 export class FormAwareDto {
-    public dtoToBaseInputs(): BaseInput<any>[] {
-        return <BaseInput<any>[]> _.mapKeys(this, (value, key) => {
+    public dtoToBaseInputs(): BaseInput[] {
+        return <BaseInput[]> _.mapKeys(this, (value, key) => {
             if (typeof value === 'string') {
-                return new TextInput();
+                return new TextInput('');
             } else if (typeof value === 'boolean') {
                 return;
             }
