@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div *ngFor="let input of inputs" class="form-row">
+        <app-dynamic-input [input]="input" [form]="form"></app-dynamic-input>
+    </div>
+
+    <div class="form-row">
+        <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+</form>
