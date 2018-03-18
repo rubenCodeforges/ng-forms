@@ -1,4 +1,4 @@
-## ng-dynamic-form 
+## ng-dynamic-form (WIP)
 
 This module will make your form building in Angular 4+ easier.
 Dynamically create reactive forms, as simple as adding a component and provide with required inputs.
@@ -45,3 +45,4 @@ getInputs(): BaseInput[] {
 this will create a form with 3 text input fields , 3 textarea and 3 selects.
 
 More input coming up, feel free to ask.
+Npm coming up.
