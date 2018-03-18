@@ -21,7 +21,7 @@ export AppModule
 Now you can use the component:
 
 ```html
-<app-dynamic-form [inputs]="getInputs()"></app-dynamic-form>
+<app-dynamic-form [inputs]="getInputs()" (submit)="doSomeThing($event)"></app-dynamic-form>
 
 ```
 
@@ -41,7 +41,7 @@ private inputs: BaseInput[] = [
 getInputs(): BaseInput[] {
     return this.inputs;
 }
-``` 
+```
 
 this will create a form with 3 text input fields , 3 textarea and 3 selects.
 

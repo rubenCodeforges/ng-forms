@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {FormGroup} from "@angular/forms";
 import {BaseInput} from "../inputs/BaseInput";
 import {AbstractControl} from "@angular/forms/src/model";
@@ -9,11 +9,10 @@ import {AbstractControl} from "@angular/forms/src/model";
 })
 export class DynamicFormComponent implements OnInit {
 
-    @Input() inputs: BaseInput<any>[] = [];
+    @Input() inputs: BaseInput[] = [];
+    @Output() submit: EventEmitter<any> = new EventEmitter<any>();
 
     public form: FormGroup;
-    public submit: EventEmitter<any> = new EventEmitter<any>();
-
 
     ngOnInit() {
         const formGroup: { [key: string]: AbstractControl } = {};

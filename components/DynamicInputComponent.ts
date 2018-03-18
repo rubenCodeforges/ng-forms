@@ -8,7 +8,7 @@ import {BaseInput} from "../inputs/BaseInput";
     templateUrl: './dynamicInput.html'
 })
 export class DynamicInputComponent {
-    @Input() input: BaseInput<any>;
+    @Input() input: BaseInput;
     @Input() form: FormGroup;
 
     public isValid(): boolean {
