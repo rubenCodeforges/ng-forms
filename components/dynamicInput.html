@@ -4,7 +4,10 @@
     <div [ngSwitch]="input.controlType">
 
         <input *ngSwitchCase="'text'" [formControlName]="input.key"
-               [id]="input.key" [type]="input.type">
+               [id]="input.key" type="text">
+
+        <textarea *ngSwitchCase="'text'" [formControlName]="input.key"
+                  [id]="input.key"></textarea>
 
         <select [id]="input.key" *ngSwitchCase="'select'" [formControlName]="input.key">
             <option *ngFor="let opt of input.options" [value]="opt.key">{{opt.value}}</option>

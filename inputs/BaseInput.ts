@@ -1,6 +1,5 @@
 import {FormControl, Validators} from "@angular/forms";
-
-export declare type InputControlType = 'text' | 'textarea' | 'select' ;
+import {BaseInputParams} from "./BaseInputParams";
 
 export class BaseInput<T> {
     value: T;
@@ -10,18 +9,12 @@ export class BaseInput<T> {
     order: number;
     controlType: InputControlType;
 
-    constructor(value?: T,
-                key?: string,
-                label?: string,
-                required?: boolean,
-                order?: number,
-                controlType?: InputControlType) {
-        this.value = value;
-        this.key = key;
-        this.label = label;
-        this.required = required;
-        this.order = order;
-        this.controlType = controlType;
+    constructor(inputParams?: BaseInputParams) {
+        this.key = inputParams.key;
+        this.label = inputParams.label;
+        this.required = inputParams.required;
+        this.order = inputParams.order;
+        this.controlType = inputParams.controlType;
     }
 
     public getFormControl(): FormControl {
