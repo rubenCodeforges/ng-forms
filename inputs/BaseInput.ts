@@ -2,8 +2,8 @@ import {FormControl, Validators} from "@angular/forms";
 import {BaseInputParams} from "./BaseInputParams";
 import {InputControlType} from "./InputControlType";
 
-export class BaseInput<T> {
-    value: T;
+export class BaseInput {
+    value: any;
     name: string;
     label: string;
     required: boolean;

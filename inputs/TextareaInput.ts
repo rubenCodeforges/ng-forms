@@ -1,6 +1,10 @@
 import {BaseInput} from "./BaseInput";
-import {InputControlType} from "./InputControlType";
+import {BaseInputParams} from "./BaseInputParams";
 
-export class TextareaInput extends BaseInput<string> {
-    public controlType: InputControlType = 'textarea';
+export class TextareaInput extends BaseInput {
+
+    constructor(name: string, inputParams: BaseInputParams) {
+        super(name, inputParams);
+        this.controlType = 'textarea';
+    }
 }
