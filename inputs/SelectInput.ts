@@ -1,12 +1,14 @@
-import {BaseInput, InputControlType} from "./BaseInput";
+import {BaseInput} from "./BaseInput";
 import {BaseInputParams} from "./BaseInputParams";
+import {InputControlType} from "./InputControlType";
+import {SelectOption} from "./SelectOption";
 
-export class SelectInput<T> extends BaseInput<string> {
+export class SelectInput extends BaseInput<string> {
     public controlType: InputControlType = 'select';
-    public options: T[];
+    public options: SelectOption[];
 
-    constructor(options: T[], params?: BaseInputParams) {
-        super(params);
+    constructor(name: string, options: SelectOption[], params?: BaseInputParams) {
+        super(name, params);
         this.options = options;
     }
 }

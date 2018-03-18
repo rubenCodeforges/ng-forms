@@ -1,20 +1,24 @@
 import {FormControl, Validators} from "@angular/forms";
 import {BaseInputParams} from "./BaseInputParams";
+import {InputControlType} from "./InputControlType";
 
 export class BaseInput<T> {
     value: T;
-    key: string;
+    name: string;
     label: string;
     required: boolean;
     order: number;
     controlType: InputControlType;
 
-    constructor(inputParams?: BaseInputParams) {
-        this.key = inputParams.key;
-        this.label = inputParams.label;
-        this.required = inputParams.required;
-        this.order = inputParams.order;
-        this.controlType = inputParams.controlType;
+    constructor(name: string, inputParams?: BaseInputParams) {
+        this.name = name;
+
+        if (inputParams) {
+            this.label = inputParams.label;
+            this.required = inputParams.required;
+            this.order = inputParams.order;
+            this.controlType = inputParams.controlType;
+        }
     }
 
     public getFormControl(): FormControl {

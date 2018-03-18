@@ -1,16 +1,16 @@
 <div [formGroup]="form">
-    <label [attr.for]="input.key">{{input.label}}</label>
+    <label [attr.for]="input.name">{{input.label}}</label>
 
     <div [ngSwitch]="input.controlType">
 
-        <input *ngSwitchCase="'text'" [formControlName]="input.key"
-               [id]="input.key" type="text">
+        <input *ngSwitchCase="'text'" [formControlName]="input.name"
+               [id]="input.name" type="text">
 
-        <textarea *ngSwitchCase="'text'" [formControlName]="input.key"
-                  [id]="input.key"></textarea>
+        <textarea *ngSwitchCase="'textarea'" [formControlName]="input.name"
+                  [id]="input.name"></textarea>
 
-        <select [id]="input.key" *ngSwitchCase="'select'" [formControlName]="input.key">
-            <option *ngFor="let opt of input.options" [value]="opt.key">{{opt.value}}</option>
+        <select [id]="input.name" *ngSwitchCase="'select'" [formControlName]="input.name">
+            <option *ngFor="let opt of input.options" [value]="opt.value">{{opt.label}}</option>
         </select>
 
     </div>

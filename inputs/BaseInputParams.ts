@@ -1,7 +1,6 @@
-import {InputControlType} from "./BaseInput";
+import {InputControlType} from "./InputControlType";
 
 export interface BaseInputParams {
-    key?: string;
     label?: string;
     required?: boolean;
     order?: number;

@@ -5,18 +5,19 @@ import {AbstractControl} from "@angular/forms/src/model";
 
 @Component({
     selector: 'app-dynamic-form',
-    templateUrl: './dynamicForm.html',
+    templateUrl: './dynamicForm.html'
 })
 export class DynamicFormComponent implements OnInit {
 
     @Input() inputs: BaseInput<any>[] = [];
+
     public form: FormGroup;
     public submit: EventEmitter<any> = new EventEmitter<any>();
 
 
     ngOnInit() {
         const formGroup: { [key: string]: AbstractControl } = {};
-        this.inputs.forEach(input => formGroup[input.key] = input.getFormControl());
+        this.inputs.forEach(input => formGroup[input.name] = input.getFormControl());
         this.form = new FormGroup(formGroup);
     }
 
