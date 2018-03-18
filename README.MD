@@ -50,5 +50,15 @@ getInputs(): BaseInput[] {
 
 this will create a form with 3 text input fields , 3 textarea and 3 selects.
 
+### Templates
+
+You can override and create custom templates for your forms.
+Ive made a couple of build in Themes.
+For example see material design theme.
+
+To use it simply replace the `<app-dynamic-form>`  with `<app-dynamic-form-material>`
+
+
+
 More input coming up, feel free to ask.
 Npm coming up.
