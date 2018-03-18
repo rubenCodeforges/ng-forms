@@ -3,6 +3,11 @@
 This module will make your form building in Angular 4+ easier.
 Dynamically create reactive forms, as simple as adding a component and provide with required inputs.
 
+Should help reduce repeatable tasks when building forms.
+The goal is not only make dynamic forms easy to build but even make the process more automated.
+Imagine a situation when you have `new user form`  
+you have a backend endpoint and some interface describing the fields,
+now the idea is to feed the interface ( better class ) to the `ng-dynamic-form` and it should build the whole new user form for you.
 
 ### How to use:
 Add a this to your AppModule: 
