@@ -27,18 +27,19 @@ Now you can use the component:
 
 `getInputs()`:
 ```typescript
+private inputs: BaseInput[] = [
+    new TextInput('userName'),
+    new SelectInput('testSelector',
+        [
+            {value: '', label: 'test'},
+            {value: '', label: 'test2'},
+            {value: '', label: 'test3'},
+            {value: '', label: 'test4'}
+        ])
+];
+
 getInputs(): BaseInput[] {
-    return [
-        new TextInput(),
-        new TextInput(),
-        new TextInput(),
-        new TextareaInput(),
-        new TextareaInput(),
-        new TextareaInput(),
-        new SelectInput(),
-        new SelectInput(),
-        new SelectInput(),
-    ]
+    return this.inputs;
 }
 ``` 
 
