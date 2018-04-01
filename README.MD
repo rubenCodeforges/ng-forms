@@ -30,25 +30,65 @@ Now you can use the component:
 
 ```
 
-`getInputs()`:
-```typescript
-private inputs: BaseInput[] = [
-    new TextInput('userName'),
-    new SelectInput('testSelector',
-        [
-            {value: '', label: 'test'},
-            {value: '', label: 'test2'},
-            {value: '', label: 'test3'},
-            {value: '', label: 'test4'}
-        ])
-];
+#### Automated usage:
+The easiest way to use `ng-dynamic-form` is to add decorators to your models and extend from `DynamicFormModel`
 
-getInputs(): BaseInput[] {
-    return this.inputs;
+
+```typescript
+// Your model
+export class BookModel extends DynamicFormModel {
+    private uuid: string;
+
+    @NgFormField(FormFieldType.TEXT)
+    private name: string;
+
+    @NgFormField(FormFieldType.TEXT_AREA)
+    private description: string;
 }
+
+```
+now in your component you can do the following:
+
+```typescript
+@Component({
+    selector: 'my-example-book-form',
+    template: '<app-dynamic-form-material [inputs]="getInputs()"></app-dynamic-form-material>'
+})
+class ExampleComponent {
+
+    public getInputs(): BaseInput[] {
+        // For demo purpose BookModel is instantiated here , it can also be a injectable
+        return new BookModel().getFormFields();
+    }
+}
+
 ```
 
-this will create a form with 3 text input fields , 3 textarea and 3 selects.
+That is it , the `getFormFields()` will return an array of FormInputs , it will scan your Model for decorated properties
+and will use them to build the form.
+
+#### Manual way
+
+If you need more flexibility you can create the form fields Manual.
+Lets change the first example a bit.
+
+```typescript
+@Component({
+    selector: 'my-example-book-form',
+    template: '<app-dynamic-form-material [inputs]="getInputs()"></app-dynamic-form-material>'
+})
+class ExampleComponent {
+
+    public getInputs(): BaseInput[] {
+        // For demo purpose BookModel is instantiated here , it can also be a injectable
+        return [
+            new TextInput('book-name'),
+            new TextAreaInput('book-description'),
+        ];
+    }
+}
+
+```
 
 ### Templates
 

@@ -1,7 +1,7 @@
 import {BaseInput} from "./BaseInput";
 import {BaseInputParams} from "./BaseInputParams";
 
-export class TextareaInput extends BaseInput {
+export class TextAreaInput extends BaseInput {
 
     constructor(name: string, inputParams: BaseInputParams) {
         super(name, inputParams);
