@@ -39,12 +39,26 @@ The easiest way to use `ng-dynamic-form` is to add decorators to your models and
 export class BookModel extends DynamicFormModel {
     private uuid: string;
 
-    @NgFormField(FormFieldType.TEXT)
+    @NgFormField({ fieldType: FormFieldType.TEXT })
     private name: string;
 
-    @NgFormField(FormFieldType.TEXT_AREA)
+    @NgFormField({ fieldType: FormFieldType.TEXT_AREA })
     private description: string;
+
+    @NgFormField({
+        fieldType: FormFieldType.SELECT,
+        selectOptionKeys: {labelKey: 'name', valueKey: 'id'}
+    })
+    private authors: {id: string, name: string}[];
+
+    constructor(name: string, description: string, authors: { id: string; name: string }[]) {
+        super();
+        this.name = name;
+        this.description = description;
+        this.authors = authors;
+    }
 }
+
 
 ```
 now in your component you can do the following:
@@ -55,12 +69,21 @@ now in your component you can do the following:
     template: '<app-dynamic-form-material [inputs]="getInputs()"></app-dynamic-form-material>'
 })
 class ExampleComponent {
+    private book: BookModel = new BookModel(
+        'Test book',
+        '',
+        [
+            {id: '1', name: 'Roger'},
+            {id: '2', name: 'Roger2'}
+        ]
+    );
 
     public getInputs(): BaseInput[] {
         // For demo purpose BookModel is instantiated here , it can also be a injectable
-        return new BookModel().getFormFields();
+        return this.book.getFormFields();
     }
 }
+
 
 ```
 

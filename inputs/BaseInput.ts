@@ -18,6 +18,7 @@ export class BaseInput {
             this.required = inputParams.required;
             this.order = inputParams.order;
             this.controlType = inputParams.controlType;
+            this.value = inputParams.value;
         }
 
         this.formControl = this.buildFormControl();
@@ -28,7 +29,8 @@ export class BaseInput {
     }
 
     private buildFormControl(): FormControl {
-        return this.required ? new FormControl(this.value || '', Validators.required)
-            : new FormControl(this.value || '');
+        return this.required ?
+            new FormControl({value: this.value, disabled: false} || '', Validators.required) :
+            new FormControl({value: this.value, disabled: false} || '');
     }
 }

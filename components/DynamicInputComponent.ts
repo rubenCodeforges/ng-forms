@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {FormGroup} from "@angular/forms";
 import {BaseInput} from "../inputs/BaseInput";
 import {AbstractControl} from "@angular/forms/src/model";
@@ -7,10 +7,14 @@ import {AbstractControl} from "@angular/forms/src/model";
     selector: 'app-dynamic-input',
     templateUrl: './dynamicInput.html'
 })
-export class DynamicInputComponent {
+export class DynamicInputComponent implements OnInit {
     @Input() input: BaseInput;
     @Input() form: FormGroup;
     @Output() formChange: EventEmitter<FormGroup> = new EventEmitter();
+
+
+    ngOnInit(): void {
+    }
 
     public isValid(): boolean {
         return this.form.controls[this.input.name].valid;

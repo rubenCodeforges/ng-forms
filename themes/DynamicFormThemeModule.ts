@@ -3,7 +3,14 @@ import {MaterialDynamicInputComponent} from "./material/MaterialDynamicInputComp
 import {MaterialDynamicFormComponent} from "./material/MaterialDynamicFormComponent";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
-import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} from "@angular/material";
+import {
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule
+} from "@angular/material";
 import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
@@ -14,6 +21,8 @@ import {TranslateModule} from "@ngx-translate/core";
         MatFormFieldModule,
         MatSelectModule,
         MatButtonModule,
+        MatCheckboxModule,
+        MatRadioModule,
         TranslateModule,
         MatInputModule
     ],

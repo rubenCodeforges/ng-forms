@@ -1,29 +1,35 @@
 import {FormFieldType} from "./FormFieldType";
 import {NgDynamicFormMetadataKeys} from "./NgDynamicFormMetadataKeys";
-import {SelectOption} from "../inputs/SelectOption";
+import {LabelValueKeysNotDefinedException} from "../exceptions/LabelValueKeysNotDefinedException";
 
 
 /**
  * Adds metadata to decorated Class field
  */
-export function NgFormField(fieldType: FormFieldType,
-                            fieldName?: string,
-                            selectOptions?: SelectOption[]): (target: any, propertyKey: string) => void {
-    return function (target: any, propertyKey: string) {
+export function NgFormField(options: NgFormFieldOptions): (target: any, propertyKey: string) => void {
+
+    if (hasNoRequiredFields(options)) {
+        throw new LabelValueKeysNotDefinedException();
+    }
+
+    return (target: any, propertyKey: string) => {
         Reflect.defineMetadata(
             NgDynamicFormMetadataKeys.NG_FORM_FIELD,
-            {
-                fieldType: fieldType,
-                fieldName: fieldName,
-                selectOptions
-            },
-            target, propertyKey
+            options,
+            target,
+            propertyKey
         );
     };
 }
 
-export interface NgFormFieldMetadata {
+function hasNoRequiredFields(options: NgFormFieldOptions) {
+    return options.fieldType === FormFieldType.SELECT && !options.selectOptionKeys
+        || options.fieldType === FormFieldType.RADIO && !options.selectOptionKeys;
+}
+
+export interface NgFormFieldOptions {
     fieldType: FormFieldType;
     fieldName?: string;
-    selectOptions?: SelectOption[];
+    selectOptionKeys?: { labelKey: string, valueKey: string };
+    validator?: any;
 }

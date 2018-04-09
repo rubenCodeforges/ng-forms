@@ -4,7 +4,10 @@
     <div [ngSwitch]="input.controlType">
 
         <input *ngSwitchCase="'text'" [formControlName]="input.name"
-               [id]="input.name" type="text">
+               [id]="input.name" type="{{input.controlType}}">
+
+        <input *ngSwitchCase="'checkbox'" [formControlName]="input.name"
+               [id]="input.name" type="{{input.controlType}}">
 
         <textarea *ngSwitchCase="'textarea'" [formControlName]="input.name"
                   [id]="input.name"></textarea>

@@ -1,1 +1,1 @@
-export declare type InputControlType = 'text' | 'textarea' | 'select' ;
+export declare type InputControlType = 'text' | 'textarea' | 'select' | 'checkbox' | 'radio';

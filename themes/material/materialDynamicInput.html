@@ -1,27 +1,38 @@
-<mat-form-field [ngSwitch]="input.controlType" [formGroup]="form">
+<ng-container *ngIf="input.controlType != 'checkbox' && input.controlType != 'radio'">
+    <mat-form-field [ngSwitch]="input.controlType" [formGroup]="form">
 
-    <input *ngSwitchCase="'text'"
-           [formControlName]="input.name"
-           [placeholder]="input.label"
-           [id]="input.name"
-           type="text"
-           matInput>
+        <input *ngSwitchCase="'text'"
+               [formControlName]="input.name"
+               [placeholder]="input.label"
+               [id]="input.name"
+               type="text"
+               matInput>
 
-    <textarea *ngSwitchCase="'textarea'"
-              [formControlName]="input.name"
-              [placeholder]="input.label"
-              [id]="input.name"
-              matInput>
-    </textarea>
+        <textarea *ngSwitchCase="'textarea'"
+                  [formControlName]="input.name"
+                  [placeholder]="input.label"
+                  [id]="input.name"
+                  matInput>
+        </textarea>
 
-    <mat-select [id]="input.name"
-                [placeholder]="input.label"
-                (selectionChange)="onChange()"
-                *ngSwitchCase="'select'"
-                [formControl]="getFormControl(input)">
-        <mat-option *ngFor="let opt of input.options" [value]="opt.value">
-            {{opt.label}}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+        <mat-select [placeholder]="input.label"
+                    (selectionChange)="onChange()"
+                    *ngSwitchCase="'select'"
+                    [formControl]="getFormControl(input)">
+            <mat-option *ngFor="let opt of input.options" [value]="opt.value">
+                {{opt.label}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</ng-container>
+
+<mat-checkbox *ngIf="input.controlType == 'checkbox'">
+    I'm a checkbox
+</mat-checkbox>
+
+<mat-radio-group *ngIf="input.controlType == 'radio'">
+    <mat-radio-button *ngFor="let radio of input.options" [value]="radio.value">
+        {{radio.label}}
+    </mat-radio-button>
+</mat-radio-group>
 <div class="errorMessage" *ngIf="!isValid()">{{input.label}} is required</div>
