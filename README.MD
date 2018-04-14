@@ -1,4 +1,4 @@
-## ng-dynamic-form (WIP)
+## ng-forms (WIP)
 
 This module will make your form building in Angular 4+ easier.
 Dynamically create reactive forms, as simple as adding a component and provide with required inputs.
@@ -7,7 +7,7 @@ Should help reduce repeatable tasks when building forms.
 The goal is not only make dynamic forms easy to build but even make the process more automated.
 Imagine a situation when you have `new user form`  
 you have a backend endpoint and some interface describing the fields,
-now the idea is to feed the interface ( better class ) to the `ng-dynamic-form` and it should build the whole new user form for you.
+now the idea is to feed the interface ( better class ) to the `ng-forms` and it should build the whole new user form for you.
 
 ### How to use:
 Add a this to your AppModule: 
@@ -16,7 +16,7 @@ Add a this to your AppModule:
 
 @NgModule({
     imports: [
-        NgDynamicForm
+        NgFormsModule
     ],
 })
 export AppModule
@@ -26,7 +26,7 @@ export AppModule
 Now you can use the component:
 
 ```html
-<app-dynamic-form [inputs]="getInputs()" (submit)="doSomeThing($event)"></app-dynamic-form>
+<ng-forms [inputs]="getInputs()" (submit)="doSomeThing($event)"></ng-forms >
 
 ```
 
@@ -36,7 +36,7 @@ The easiest way to use `ng-dynamic-form` is to add decorators to your models and
 
 ```typescript
 // Your model
-export class BookModel extends DynamicFormModel {
+export class BookModel extends NgDynamicFormsModel {
     private uuid: string;
 
     @NgFormField({ fieldType: FormFieldType.TEXT })
@@ -66,7 +66,7 @@ now in your component you can do the following:
 ```typescript
 @Component({
     selector: 'my-example-book-form',
-    template: '<app-dynamic-form-material [inputs]="getInputs()"></app-dynamic-form-material>'
+    template: '<ng-forms-material [inputs]="getInputs()"></ng-forms-material>'
 })
 class ExampleComponent {
     private book: BookModel = new BookModel(
@@ -98,7 +98,7 @@ Lets change the first example a bit.
 ```typescript
 @Component({
     selector: 'my-example-book-form',
-    template: '<app-dynamic-form-material [inputs]="getInputs()"></app-dynamic-form-material>'
+    template: '<ng-forms-material [inputs]="getInputs()"></ng-forms-material>'
 })
 class ExampleComponent {
 
@@ -119,7 +119,7 @@ You can override and create custom templates for your forms.
 Ive made a couple of build in Themes.
 For example see material design theme.
 
-To use it simply replace the `<app-dynamic-form>`  with `<app-dynamic-form-material>`
+To use it simply replace the `<ng-forms>`  with `<ng-forms-material>`
 
 
 

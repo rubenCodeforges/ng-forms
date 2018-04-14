@@ -1,12 +1,12 @@
-import {BaseInput} from "../inputs/BaseInput";
+import {BaseInput} from "../inputs/base/BaseInput";
 import * as _ from "lodash";
-import {NgDynamicFormMetadataKeys} from "./NgDynamicFormMetadataKeys";
-import {BaseInputFactory} from "../inputs/BaseInputFactory";
-import {NgFormFieldOptions} from "./FormFieldDecorator";
-import {FormFieldType} from "./FormFieldType";
+import {NgFormsMetadataKeys} from "../utils/decorators/NgFormsMetadataKeys";
+import {BaseInputFactory} from "../inputs/base/BaseInputFactory";
+import {NgFormFieldOptions} from "../utils/decorators/NgFormFieldDecorator";
+import {FormFieldType} from "../utils/FormFieldType";
 import {SelectOption} from "../inputs/SelectOption";
 
-export abstract class DynamicFormModel {
+export abstract class NgDynamicFormsModel {
     private inputs: BaseInput[] = [];
 
     public getFormFields(): BaseInput[] {
@@ -58,6 +58,6 @@ export abstract class DynamicFormModel {
     }
 
     private getNgFormFieldMetadata(propertyKey: string): NgFormFieldOptions {
-        return Reflect.getMetadata(NgDynamicFormMetadataKeys.NG_FORM_FIELD, this, propertyKey);
+        return Reflect.getMetadata(NgFormsMetadataKeys.NG_FORM_FIELD, this, propertyKey);
     }
 }

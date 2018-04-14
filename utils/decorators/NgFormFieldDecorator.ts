@@ -1,6 +1,6 @@
-import {FormFieldType} from "./FormFieldType";
-import {NgDynamicFormMetadataKeys} from "./NgDynamicFormMetadataKeys";
-import {LabelValueKeysNotDefinedException} from "../exceptions/LabelValueKeysNotDefinedException";
+import {FormFieldType} from "../FormFieldType";
+import {NgFormsMetadataKeys} from "./NgFormsMetadataKeys";
+import {LabelValueKeysNotDefinedException} from "../../exceptions/LabelValueKeysNotDefinedException";
 
 
 /**
@@ -14,7 +14,7 @@ export function NgFormField(options: NgFormFieldOptions): (target: any, property
 
     return (target: any, propertyKey: string) => {
         Reflect.defineMetadata(
-            NgDynamicFormMetadataKeys.NG_FORM_FIELD,
+            NgFormsMetadataKeys.NG_FORM_FIELD,
             options,
             target,
             propertyKey

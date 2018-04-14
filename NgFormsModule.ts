@@ -3,7 +3,7 @@ import {DynamicFormComponent} from "./components/DynamicFormComponent";
 import {DynamicInputComponent} from "./components/DynamicInputComponent";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
-import {DynamicFormThemeModule} from "./themes/DynamicFormThemeModule";
+import {NgFormsThemeModule} from "./themes/NgFormsThemeModule";
 import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
@@ -11,7 +11,7 @@ import {TranslateModule} from "@ngx-translate/core";
         FormsModule,
         BrowserModule,
         TranslateModule,
-        DynamicFormThemeModule,
+        NgFormsThemeModule,
         ReactiveFormsModule
     ],
     declarations: [
@@ -19,12 +19,12 @@ import {TranslateModule} from "@ngx-translate/core";
         DynamicInputComponent
     ],
     exports: [
-        DynamicFormThemeModule,
+        NgFormsThemeModule,
         DynamicFormComponent,
         DynamicInputComponent
     ]
 })
-export class NgDynamicForm {
+export class NgFormsModule {
 
 }
 

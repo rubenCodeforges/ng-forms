@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {FormGroup} from "@angular/forms";
-import {BaseInput} from "../inputs/BaseInput";
+import {BaseInput} from "../inputs/base/BaseInput";
 import {AbstractControl} from "@angular/forms/src/model";
 
 @Component({
-    selector: 'app-dynamic-form',
+    selector: 'ng-forms',
     templateUrl: './dynamicForm.html'
 })
 export class DynamicFormComponent implements OnInit {

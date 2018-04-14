@@ -1,5 +1,5 @@
-import {BaseInput} from "./BaseInput";
-import {BaseInputParams} from "./BaseInputParams";
+import {BaseInput} from "./base/BaseInput";
+import {BaseInputParams} from "./base/BaseInputParams";
 import {SelectOption} from "./SelectOption";
 
 export class SelectInput extends BaseInput {

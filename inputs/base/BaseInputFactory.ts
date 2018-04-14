@@ -1,10 +1,10 @@
 import {BaseInput} from "./BaseInput";
-import {TextInput} from "./TextInput";
+import {TextInput} from "../TextInput";
 import {BaseInputParams} from "./BaseInputParams";
-import {TextAreaInput} from "./TextAreaInput";
-import {SelectInput} from "./SelectInput";
-import {CheckboxInput} from "./CheckboxInput";
-import {RadioInput} from "./RadioInput";
+import {TextAreaInput} from "../TextAreaInput";
+import {SelectInput} from "../SelectInput";
+import {CheckboxInput} from "../CheckboxInput";
+import {RadioInput} from "../RadioInput";
 
 export class BaseInputFactory {
     public static build(className: string,

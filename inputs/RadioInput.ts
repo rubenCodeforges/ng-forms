@@ -1,4 +1,4 @@
-import {BaseInputParams} from "./BaseInputParams";
+import {BaseInputParams} from "./base/BaseInputParams";
 import {SelectOption} from "./SelectOption";
 import {SelectInput} from "./SelectInput";
 

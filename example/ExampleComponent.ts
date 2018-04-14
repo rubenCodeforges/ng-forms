@@ -1,10 +1,10 @@
 import {Component} from "@angular/core";
-import {BaseInput} from "../inputs/BaseInput";
+import {BaseInput} from "../inputs/base/BaseInput";
 import {BookModel} from "./BookModel";
 
 @Component({
     selector: 'my-example-book-form',
-    template: '<app-dynamic-form-material [inputs]="getInputs()"></app-dynamic-form-material>'
+    template: '<ng-forms-material [inputs]="getInputs()"></ng-forms-material>'
 })
 class ExampleComponent {
     private book: BookModel = new BookModel(

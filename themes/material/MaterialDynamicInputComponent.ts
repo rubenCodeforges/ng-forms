@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 import {DynamicInputComponent} from "../../components/DynamicInputComponent";
 
 @Component({
-    selector: 'app-dynamic-input-material',
+    selector: 'ng-forms-input-material',
     templateUrl: './materialDynamicInput.html'
 })
 export class MaterialDynamicInputComponent extends DynamicInputComponent {

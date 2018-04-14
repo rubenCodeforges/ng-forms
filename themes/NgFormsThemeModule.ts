@@ -35,5 +35,5 @@ import {TranslateModule} from "@ngx-translate/core";
         MaterialDynamicInputComponent
     ]
 })
-export class DynamicFormThemeModule {
+export class NgFormsThemeModule {
 }
