@@ -1,0 +1,57 @@
+{
+  "name": "ng-forms",
+  "version": "0.1.0",
+  "description": "Angular 4+ Dynamic form builder, decorate your models to generate forms or create them manually",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "ngc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubenCodeforges/ng-forms"
+  },
+  "keywords": [
+    "Angular2",
+    "Angular4",
+    "Angular5",
+    "Angular",
+    "angular",
+    "2",
+    "4",
+    "5",
+    "ng2",
+    "ng4",
+    "ng5"
+  ],
+  "author": "Ruben M",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rubenCodeforges/ng-forms/issues"
+  },
+  "homepage": "https://github.com/rubenCodeforges/ng-forms#readme",
+  "dependencies": {
+    "@angular/animations": "^5.2.3",
+    "@angular/cdk": "^5.1.1",
+    "@angular/common": "^5.2.3",
+    "@angular/compiler": "^5.2.3",
+    "@angular/core": "^5.2.3",
+    "@angular/platform-browser": "^5.2.3",
+    "@angular/platform-browser-dynamic": "^5.2.3",
+    "@angular/forms": "^5.2.3",
+    "@angular/material": "^5.1.1",
+    "rxjs": "^5.5.5",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.12",
+    "zone.js": "^0.8.18"
+  },
+  "devDependencies": {
+    "@angular/compiler-cli": "^5.2.3",
+    "@ngx-translate/core": "^10.0.1",
+    "@types/node": "7.0.10",
+    "@types/lodash": "^4.14.106",
+    "lodash": "^4.17.5",
+    "typescript": "^2.6.2"
+  }
+}

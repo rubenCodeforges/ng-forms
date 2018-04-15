@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {BaseInput} from "../inputs/base/BaseInput";
+import {BaseInput} from "../src/inputs/base/BaseInput";
 import {BookModel} from "./BookModel";
 
 @Component({

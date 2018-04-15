@@ -5,6 +5,7 @@ import {BaseInputFactory} from "../inputs/base/BaseInputFactory";
 import {NgFormFieldOptions} from "../utils/decorators/NgFormFieldDecorator";
 import {FormFieldType} from "../utils/FormFieldType";
 import {SelectOption} from "../inputs/SelectOption";
+import 'reflect-metadata';
 
 export abstract class NgDynamicFormsModel {
     private inputs: BaseInput[] = [];
@@ -17,7 +18,7 @@ export abstract class NgDynamicFormsModel {
                 if (formFieldOptions) {
                     formFieldOptions.fieldName = formFieldOptions.fieldName || propertyKey;
                     const selectOptions: SelectOption[] = this.buildSelectOptions(formFieldOptions, value);
-                    this.inputs.push(this.buildBaseInput(formFieldOptions, value, selectOptions));
+                    this.inputs.push(this.buildBaseInput(formFieldOptions, value.toString(), selectOptions));
                 }
             });
         }

@@ -1,6 +1,6 @@
-import {NgDynamicFormsModel} from "../models/NgDynamicFormsModel";
-import {NgFormField} from "../utils/decorators/NgFormFieldDecorator";
-import {FormFieldType} from "../utils/FormFieldType";
+import {NgDynamicFormsModel} from "../src/models/NgDynamicFormsModel";
+import {NgFormField} from "../src/utils/decorators/NgFormFieldDecorator";
+import {FormFieldType} from "../src/utils/FormFieldType";
 
 export class BookModel extends NgDynamicFormsModel {
     private uuid: string;

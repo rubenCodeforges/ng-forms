@@ -6,7 +6,9 @@
 /out-tsc
 
 # dependencies
+/lib
 /node_modules
+/bower_components
 
 # IDEs and editors
 /.idea

@@ -1,8 +1,8 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <app-dynamic-input-material *ngFor="let input of inputs"
-                                [input]="input"
-                                [(form)]="form">
-    </app-dynamic-input-material>
+    <ng-forms-input-material *ngFor="let input of inputs"
+                             [input]="input"
+                             [(form)]="form">
+    </ng-forms-input-material>
     <div class="form-row">
         <button mat-button type="submit" [disabled]="!form.valid">{{submitLabel | translate}}</button>
     </div>
