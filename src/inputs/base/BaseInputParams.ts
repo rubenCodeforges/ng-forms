@@ -6,6 +6,8 @@ export interface BaseInputParams {
     value?: string;
     selectOptions?: SelectOption[];
     required?: boolean;
+    disabled?: boolean;
+    placeholder?: string;
     order?: number;
     controlType?: InputControlType;
 }

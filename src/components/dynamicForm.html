@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
+<form (ngSubmit)="onSubmit(form)" [formGroup]="form">
     <div *ngFor="let input of inputs" class="form-row">
         <ng-forms-input [input]="input" [form]="form"></ng-forms-input>
     </div>

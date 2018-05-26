@@ -1,0 +1,23 @@
+.flex-content-justify-between {
+    display: flex !important;
+    justify-content: space-between;
+}
+
+ng-forms-input-material {
+
+    .w-100 {
+        width: 100%;
+    }
+
+    .w-75 {
+        width: 75%;
+    }
+
+    .w-50 {
+        width: 50%;
+    }
+
+    .w-33 {
+        width: 33%;
+    }
+}

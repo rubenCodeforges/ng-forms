@@ -1,28 +1,33 @@
 <ng-container *ngIf="input.controlType != 'checkbox' && input.controlType != 'radio'">
-    <mat-form-field [ngSwitch]="input.controlType" [formGroup]="form">
-
+    <mat-form-field [ngSwitch]="input.controlType" [formGroup]="form" class="w-100">
         <input *ngSwitchCase="'text'"
                [formControlName]="input.name"
-               [placeholder]="input.label"
+               [placeholder]="input.placeholder"
                [id]="input.name"
+               [required]="input.required"
                type="text"
                matInput>
 
         <textarea *ngSwitchCase="'textarea'"
                   [formControlName]="input.name"
-                  [placeholder]="input.label"
+                  [placeholder]="input.placeholder"
+                  [required]="input.required"
+                  [attr.requried]="input.required"
                   [id]="input.name"
                   matInput>
         </textarea>
 
-        <mat-select [placeholder]="input.label"
+        <mat-select [placeholder]="input.placeholder"
                     (selectionChange)="onChange()"
+                    [required]="input.required"
                     *ngSwitchCase="'select'"
                     [formControl]="getFormControl(input)">
             <mat-option *ngFor="let opt of input.options" [value]="opt.value">
                 {{opt.label}}
             </mat-option>
         </mat-select>
+
+        <mat-error *ngIf="!isValid()">The field is required</mat-error>
     </mat-form-field>
 </ng-container>
 
@@ -35,4 +40,3 @@
         {{radio.label}}
     </mat-radio-button>
 </mat-radio-group>
-<div class="errorMessage" *ngIf="!isValid()">{{input.label}} is required</div>

@@ -1,6 +1,7 @@
-import {FormFieldType} from "../FormFieldType";
+import {FormFieldType} from "../models/FormFieldType";
 import {NgFormsMetadataKeys} from "./NgFormsMetadataKeys";
-import {LabelValueKeysNotDefinedException} from "../../exceptions/LabelValueKeysNotDefinedException";
+import {LabelValueKeysNotDefinedException} from "../exceptions/LabelValueKeysNotDefinedException";
+import {NgFormFieldOptions} from "./NgFormFieldOptions";
 
 
 /**
@@ -25,11 +26,4 @@ export function NgFormField(options: NgFormFieldOptions): (target: any, property
 function hasNoRequiredFields(options: NgFormFieldOptions) {
     return options.fieldType === FormFieldType.SELECT && !options.selectOptionKeys
         || options.fieldType === FormFieldType.RADIO && !options.selectOptionKeys;
-}
-
-export interface NgFormFieldOptions {
-    fieldType: FormFieldType;
-    fieldName?: string;
-    selectOptionKeys?: { labelKey: string, valueKey: string };
-    validator?: any;
 }

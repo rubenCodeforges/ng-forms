@@ -1,9 +1,59 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <ng-forms-input-material *ngFor="let input of inputs"
-                             [input]="input"
-                             [(form)]="form">
-    </ng-forms-input-material>
-    <div class="form-row">
-        <button mat-button type="submit" [disabled]="!form.valid">{{submitLabel | translate}}</button>
-    </div>
+<form (ngSubmit)="onSubmit(form)" [formGroup]="form">
+    <mat-card>
+        <mat-card-title class="flex-content-justify-between">
+            <ng-content select="[card-title]"></ng-content>
+        </mat-card-title>
+
+        <mat-card-content>
+            <ng-container *ngFor="let input of inputs; index as i; last as isLast">
+
+                <section *ngIf="i % options.columns == 0" class="flex-content-justify-between">
+                    <ng-container [ngSwitch]="options.columns">
+
+                        <ng-forms-input-material *ngSwitchCase="1"
+                                                 [input]="input"
+                                                 [class]="'flex-content-justify-between'"
+                                                 [(form)]="form">
+                        </ng-forms-input-material>
+
+                        <ng-container *ngSwitchCase="2">
+                            <ng-forms-input-material [input]="input"
+                                                     [class]="'flex-content-justify-between'"
+                                                     [(form)]="form">
+                            </ng-forms-input-material>
+                            <ng-forms-input-material *ngIf="i + 1 < inputs.length"
+                                                     [input]="(inputs[i + 1])"
+                                                     [class]="'flex-content-justify-between'"
+                                                     [(form)]="form">
+                            </ng-forms-input-material>
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="3">
+                            <ng-forms-input-material [input]="input"
+                                                     [class]="'flex-content-justify-between ' + getWidth()"
+                                                     [(form)]="form">
+                            </ng-forms-input-material>
+                            <ng-forms-input-material *ngIf="i + 1 < inputs.length"
+                                                     [class]="'flex-content-justify-between ' + getWidth()"
+                                                     [input]="(inputs[i + 1])"
+                                                     [(form)]="form">
+                            </ng-forms-input-material>
+                            <ng-forms-input-material *ngIf="i + 2 < inputs.length"
+                                                     [class]="'flex-content-justify-between ' + getWidth()"
+                                                     [input]="(inputs[i + 2])"
+                                                     [(form)]="form">
+                            </ng-forms-input-material>
+                        </ng-container>
+                    </ng-container>
+                </section>
+
+                <mat-divider></mat-divider>
+            </ng-container>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+            <ng-content select="[card-action-item]"></ng-content>
+            <button type="submit" [disabled]="!form.valid" mat-button>Submit</button>
+        </mat-card-actions>
+    </mat-card>
 </form>

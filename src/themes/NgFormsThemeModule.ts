@@ -5,11 +5,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {
     MatButtonModule,
+    MatCardModule,
     MatCheckboxModule,
+    MatChipsModule,
+    MatDividerModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSlideToggleModule
 } from "@angular/material";
 import {TranslateModule} from "@ngx-translate/core";
 
@@ -19,6 +23,10 @@ import {TranslateModule} from "@ngx-translate/core";
         ReactiveFormsModule,
         BrowserModule,
         MatFormFieldModule,
+        MatCardModule,
+        MatDividerModule,
+        MatChipsModule,
+        MatSlideToggleModule,
         MatSelectModule,
         MatButtonModule,
         MatCheckboxModule,
