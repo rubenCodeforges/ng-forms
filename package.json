@@ -1,5 +1,5 @@
 {
-  "name": "ng-forms",
+  "name": "@codeforges/ng-forms",
   "version": "0.1.0",
   "description": "Angular 4+ Dynamic form builder, decorate your models to generate forms or create them manually",
   "scripts": {
