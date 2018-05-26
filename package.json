@@ -50,6 +50,7 @@
     "@types/node": "7.0.10",
     "@types/lodash": "^4.14.106",
     "lodash": "^4.17.5",
+    "reflect-metadata": "^0.1.12",
     "typescript": "^2.6.2"
   }
 }

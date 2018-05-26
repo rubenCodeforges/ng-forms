@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: "./src/NgFormsModule.ts",
+  entry: "./main.ts",
   output: {
     filename: "bundle.js"
   },

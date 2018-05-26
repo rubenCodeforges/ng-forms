@@ -3,7 +3,6 @@ import {NgFormsMetadataKeys} from "./NgFormsMetadataKeys";
 import {LabelValueKeysNotDefinedException} from "../exceptions/LabelValueKeysNotDefinedException";
 import {NgFormFieldOptions} from "./NgFormFieldOptions";
 
-
 /**
  * Adds metadata to decorated Class field
  */

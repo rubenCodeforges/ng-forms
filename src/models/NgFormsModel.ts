@@ -20,7 +20,7 @@ export abstract class NgFormsModel {
                 this.setInputName(formFieldOptions, propertyKey);
                 const selectOptions: SelectOption[] = this.buildSelectOptions(formFieldOptions, value);
 
-                inputs.push(this.buildBaseInput(formFieldOptions, value, selectOptions, required));
+                inputs.push(this.buildBaseInput(formFieldOptions, value.toString(), selectOptions, required));
             }
         });
         return inputs;
