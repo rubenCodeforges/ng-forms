@@ -12,18 +12,18 @@
 
                         <ng-forms-input-material *ngSwitchCase="1"
                                                  [input]="input"
-                                                 [class]="'flex-content-justify-between'"
+                                                 [class]="'flex-content-justify-between ' + getWidth()"
                                                  [(form)]="form">
                         </ng-forms-input-material>
 
                         <ng-container *ngSwitchCase="2">
                             <ng-forms-input-material [input]="input"
-                                                     [class]="'flex-content-justify-between'"
+                                                     [class]="'flex-content-justify-between ' + getWidth()"
                                                      [(form)]="form">
                             </ng-forms-input-material>
                             <ng-forms-input-material *ngIf="i + 1 < inputs.length"
                                                      [input]="(inputs[i + 1])"
-                                                     [class]="'flex-content-justify-between'"
+                                                     [class]="'flex-content-justify-between ' + getWidth()"
                                                      [(form)]="form">
                             </ng-forms-input-material>
                         </ng-container>
@@ -47,7 +47,7 @@
                     </ng-container>
                 </section>
 
-                <mat-divider></mat-divider>
+                <mat-divider *ngIf="dividerEnabled"></mat-divider>
             </ng-container>
         </mat-card-content>
 

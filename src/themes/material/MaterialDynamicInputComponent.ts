@@ -1,5 +1,5 @@
-import {Component, ViewEncapsulation} from "@angular/core";
-import {DynamicInputComponent} from "../../components/DynamicInputComponent";
+import {Component, ViewEncapsulation} from '@angular/core';
+import {DynamicInputComponent} from '../../components/DynamicInputComponent';
 
 @Component({
     selector: 'ng-forms-input-material',

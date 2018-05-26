@@ -5,19 +5,32 @@
 
 ng-forms-input-material {
 
-    .w-100 {
+    &.w-100 {
         width: 100%;
+
+        & mat-form-field {
+            width: 100%
+        }
     }
 
-    .w-75 {
+    &.w-75 {
         width: 75%;
+        & mat-form-field {
+            width: 75%
+        }
     }
 
-    .w-50 {
+    &.w-50 {
         width: 50%;
+        & mat-form-field {
+            width: 50%
+        }
     }
 
-    .w-33 {
+    &.w-33 {
         width: 33%;
+        & mat-form-field {
+            width: 33%
+        }
     }
 }

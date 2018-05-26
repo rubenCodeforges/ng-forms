@@ -1,8 +1,8 @@
-import {NgModule} from "@angular/core";
-import {MaterialDynamicInputComponent} from "./material/MaterialDynamicInputComponent";
-import {MaterialDynamicFormComponent} from "./material/MaterialDynamicFormComponent";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from '@angular/core';
+import {MaterialDynamicInputComponent} from './material/MaterialDynamicInputComponent';
+import {MaterialDynamicFormComponent} from './material/MaterialDynamicFormComponent';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 import {
     MatButtonModule,
     MatCardModule,
@@ -14,8 +14,8 @@ import {
     MatRadioModule,
     MatSelectModule,
     MatSlideToggleModule
-} from "@angular/material";
-import {TranslateModule} from "@ngx-translate/core";
+} from '@angular/material';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
     imports: [

@@ -36,7 +36,7 @@ The easiest way to use `ng-dynamic-form` is to add decorators to your models and
 
 ```typescript
 // Your model
-export class BookModel extends NgDynamicFormsModel {
+export class BookModel extends NgFormsModel {
     private uuid: string;
 
     @NgFormField({ fieldType: FormFieldType.TEXT })
