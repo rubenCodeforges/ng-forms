@@ -1,11 +1,14 @@
-import {FormFieldType} from "../models/FormFieldType";
-import {NgFormsMetadataKeys} from "./NgFormsMetadataKeys";
-import {LabelValueKeysNotDefinedException} from "../exceptions/LabelValueKeysNotDefinedException";
-import {NgFormFieldOptions} from "./NgFormFieldOptions";
+import 'reflect-metadata';
+import {META_DATA_KEYS} from './META_DATA_KEYS';
+import {FormFieldType} from '../models/FormFieldType';
+import {LabelValueKeysNotDefinedException} from '../exceptions/LabelValueKeysNotDefinedException';
+import {NgFormFieldOptions} from './NgFormFieldOptions';
+import * as _ from 'lodash';
 
 /**
  * Adds metadata to decorated Class field
  */
+
 export function NgFormField(options: NgFormFieldOptions): (target: any, propertyKey: string) => void {
 
     if (hasNoRequiredFields(options)) {
@@ -13,12 +16,12 @@ export function NgFormField(options: NgFormFieldOptions): (target: any, property
     }
 
     return (target: any, propertyKey: string) => {
-        Reflect.defineMetadata(
-            NgFormsMetadataKeys.NG_FORM_FIELD,
-            options,
-            target,
-            propertyKey
-        );
+        let metadata = _.setWith({}, propertyKey, options);
+        if (_.hasIn(target, META_DATA_KEYS.NG_FORM_FIELD)) {
+            metadata = _.get(target, META_DATA_KEYS.NG_FORM_FIELD);
+            metadata[propertyKey] = options;
+        }
+        _.setWith(target, META_DATA_KEYS.NG_FORM_FIELD, metadata);
     };
 }
 

@@ -1,12 +1,11 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
-import {FormGroup} from "@angular/forms";
-import {BaseInput} from "../inputs/base/BaseInput";
-import {AbstractControl} from "@angular/forms/src/model";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AbstractControl, FormGroup} from '@angular/forms';
+import {BaseInput} from '../inputs/base/BaseInput';
+
 
 @Component({
     selector: 'ng-forms-input',
-    templateUrl: './dynamicInput.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    templateUrl: 'dynamicInput.html',
 })
 export class DynamicInputComponent implements OnInit {
     @Input() input: BaseInput;

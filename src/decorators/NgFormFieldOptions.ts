@@ -1,4 +1,4 @@
-import {FormFieldType} from "../models/FormFieldType";
+import {FormFieldType} from '../models/FormFieldType';
 
 export interface NgFormFieldOptions {
     fieldType: FormFieldType;

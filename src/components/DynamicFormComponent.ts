@@ -1,13 +1,12 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
-import {FormGroup} from "@angular/forms";
-import {BaseInput} from "../inputs/base/BaseInput";
-import {AbstractControl} from "@angular/forms/src/model";
-import {NgFormsInputOptions} from "./NgFormsOptions";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {NgFormsInputOptions} from './NgFormsOptions';
+import {AbstractControl, FormGroup} from '@angular/forms';
+import {BaseInput} from '../inputs/base/BaseInput';
+
 
 @Component({
     selector: 'ng-forms',
-    templateUrl: './dynamicForm.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: 'dynamicForm.html',
 
 })
 export class DynamicFormComponent implements OnInit {
@@ -15,7 +14,7 @@ export class DynamicFormComponent implements OnInit {
     @Input() inputs: BaseInput[] = [];
     @Input() options: NgFormsInputOptions = {
         columns: 1,
-        submitLabel: 'Submit'
+        submitLabel: 'SETTINGS_MODAL_SAVE_LABEL',
     };
 
     @Output() formSubmit: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
@@ -43,7 +42,6 @@ export class DynamicFormComponent implements OnInit {
 
     private buildForm() {
         const formGroup: { [key: string]: AbstractControl } = {};
-
         this.inputs.forEach(input => formGroup[input.name] = input.getFormControl());
         this.form = new FormGroup(formGroup);
     }

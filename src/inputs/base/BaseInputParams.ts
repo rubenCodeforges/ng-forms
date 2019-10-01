@@ -1,5 +1,5 @@
-import {InputControlType} from "../InputControlType";
-import {SelectOption} from "../SelectOption";
+import {InputControlType} from '../InputControlType';
+import {SelectOption} from '../SelectOption';
 
 export interface BaseInputParams {
     label?: string;

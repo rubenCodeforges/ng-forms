@@ -1,4 +1,4 @@
-export const NgFormsMetadataKeys = {
+export const META_DATA_KEYS = {
     NG_FORM_FIELD: 'NG_FORM_FIELD',
     NG_FORM_FIELD_REQUIRED: 'NG_FORM_FIELD_REQUIRED'
 };

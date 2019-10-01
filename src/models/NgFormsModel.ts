@@ -1,11 +1,11 @@
-import {BaseInput} from "../inputs/base/BaseInput";
-import * as _ from "lodash";
-import {NgFormsMetadataKeys} from "../decorators/NgFormsMetadataKeys";
-import {BaseInputFactory} from "../inputs/base/BaseInputFactory";
-import {FormFieldType} from "./FormFieldType";
-import {SelectOption} from "../inputs/SelectOption";
-import {NgFormFieldOptions} from "../decorators/NgFormFieldOptions";
-import {BaseInputParams} from "../inputs/base/BaseInputParams";
+import {BaseInput} from '../inputs/base/BaseInput';
+import * as _ from 'lodash';
+import {META_DATA_KEYS} from '../decorators/META_DATA_KEYS';
+import {BaseInputFactory} from '../inputs/base/BaseInputFactory';
+import {FormFieldType} from './FormFieldType';
+import {SelectOption} from '../inputs/SelectOption';
+import {NgFormFieldOptions} from '../decorators/NgFormFieldOptions';
+import {BaseInputParams} from '../inputs/base/BaseInputParams';
 
 export abstract class NgFormsModel {
 
@@ -15,11 +15,9 @@ export abstract class NgFormsModel {
         _.forOwn(this, (value, propertyKey: string) => {
             const formFieldOptions: NgFormFieldOptions = this.getNgFormFieldMetadata(propertyKey);
             const required: boolean = this.getNgFormRequiredMetadata(propertyKey);
-
             if (formFieldOptions) {
                 this.setInputName(formFieldOptions, propertyKey);
                 const selectOptions: SelectOption[] = this.buildSelectOptions(formFieldOptions, value);
-
                 inputs.push(this.buildBaseInput(formFieldOptions, value.toString(), selectOptions, required));
             }
         });
@@ -33,7 +31,6 @@ export abstract class NgFormsModel {
                            required: boolean = false) {
 
         const params: BaseInputParams = this.buildBaseInputParams(formFieldOptions, selectOptions, value, required);
-
         return BaseInputFactory.build(
             formFieldOptions.fieldType,
             formFieldOptions.fieldName,
@@ -75,14 +72,14 @@ export abstract class NgFormsModel {
     }
 
     private setInputName(formFieldOptions: NgFormFieldOptions, propertyKey: string) {
-        formFieldOptions.fieldName = formFieldOptions.fieldName || propertyKey;
+        _.set(formFieldOptions, 'fieldName', propertyKey);
     }
 
     private getNgFormRequiredMetadata(propertyKey: string): boolean {
-        return Reflect.getMetadata(NgFormsMetadataKeys.NG_FORM_FIELD_REQUIRED, this, propertyKey);
+        return _.get(this, META_DATA_KEYS.NG_FORM_FIELD_REQUIRED, propertyKey);
     }
 
     private getNgFormFieldMetadata(propertyKey: string): NgFormFieldOptions {
-        return Reflect.getMetadata(NgFormsMetadataKeys.NG_FORM_FIELD, this, propertyKey);
+        return _.get(this, META_DATA_KEYS.NG_FORM_FIELD + '.' + propertyKey);
     }
 }

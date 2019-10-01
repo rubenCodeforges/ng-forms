@@ -18,5 +18,6 @@
 
     </div>
 
-    <div class="errorMessage" *ngIf="!isValid()">{{input.label}} is required</div>
+    <div class="errorMessage"
+         *ngIf="!isValid()">{{'SETTINGS_FORM_IS_REQUIRED' | translate: {value: input.label} }}</div>
 </div>

@@ -1,6 +1,6 @@
-import {BaseInputParams} from "./base/BaseInputParams";
-import {SelectOption} from "./SelectOption";
-import {SelectInput} from "./SelectInput";
+import {BaseInputParams} from './base/BaseInputParams';
+import {SelectOption} from './SelectOption';
+import {SelectInput} from './SelectInput';
 
 export class RadioInput extends SelectInput {
 

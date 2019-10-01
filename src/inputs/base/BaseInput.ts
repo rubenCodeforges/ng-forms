@@ -1,6 +1,6 @@
-import {FormControl, Validators} from "@angular/forms";
-import {BaseInputParams} from "./BaseInputParams";
-import {InputControlType} from "../InputControlType";
+import {FormControl, Validators} from '@angular/forms';
+import {BaseInputParams} from './BaseInputParams';
+import {InputControlType} from '../InputControlType';
 
 export class BaseInput {
     public value: any;
